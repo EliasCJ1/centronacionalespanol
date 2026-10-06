@@ -4,7 +4,7 @@
 
 body {
     zoom: var(--escala-pantalla);
-    min-height: calc(100vh / var(--escala-pantalla));
+    min-height: 100vh;
 }
 
 header,
