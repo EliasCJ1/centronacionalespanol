@@ -1,0 +1,289 @@
+/* Estilos compartidos de las secciones de CNE Web */
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #222;
+    --border-color: #cccccc;
+    --card-bg: #ffffff;
+    --amarillo: #EBC33F;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-color);
+    background-image: url('fondodescripcion.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Cabecera y Logo */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 20px;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-placeholder {
+    width: 200px;
+    height: 200px;
+}
+
+/* Barra de Navegación */
+nav {
+    background-color: var(--amarillo);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    transition: background 0.2s;
+}
+
+nav a:hover,
+nav a.activo {
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+}
+
+/* Buscador */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-left: 15px;
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    padding: 4px;
+    font-size: 0.9rem;
+}
+
+.search-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenido */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+.titulo {
+    background-color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin: 20px auto 0;
+    width: fit-content;
+    text-align: center;
+}
+
+.tarjeta {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    margin-top: 20px;
+}
+
+.tarjeta h3 {
+    text-transform: uppercase;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--amarillo);
+    padding-bottom: 4px;
+}
+
+.tarjeta p {
+    text-align: justify;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.tarjeta ul {
+    padding-left: 20px;
+    color: #333;
+}
+
+.tarjeta li {
+    margin-bottom: 6px;
+}
+
+.fecha {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #8a6d00;
+    margin-bottom: 6px;
+}
+
+/* Rejilla de noticias */
+.rejilla {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.rejilla .tarjeta {
+    margin-top: 0;
+    transition: transform 0.2s ease;
+}
+
+.rejilla .tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.rejilla img {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+/* Botones */
+.boton {
+    display: inline-block;
+    background-color: var(--amarillo);
+    color: #222;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 22px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+
+.boton:hover {
+    filter: brightness(0.92);
+}
+
+/* Formulario */
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.formulario .completo {
+    grid-column: 1 / -1;
+}
+
+.formulario label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 0.9rem;
+    gap: 4px;
+}
+
+.formulario label.casilla {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 8px;
+    font-weight: 400;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    font: inherit;
+    padding: 9px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.formulario input[type="checkbox"] {
+    margin-top: 4px;
+}
+
+.oculto {
+    display: none;
+}
+
+.aviso {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* Redes */
+.red {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.red svg {
+    flex-shrink: 0;
+}
+
+.sin-resultados {
+    color: #666;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: var(--amarillo);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 850px) {
+    .search-container {
+        margin-left: 0;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+}

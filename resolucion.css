@@ -1,0 +1,15 @@
+:root {
+    --escala-pantalla: 1;
+}
+
+body {
+    zoom: var(--escala-pantalla);
+    min-height: calc(100vh / var(--escala-pantalla));
+}
+
+header,
+nav,
+footer {
+    flex-shrink: 0;
+}
+

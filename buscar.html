@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar | CNE Web</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="resolucion.css">
+    <script src="resolucion.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabecera con el logo -->
+    <header>
+        <a href="index.html"><img src="cnj.png" alt="CNE" id="main-logo" class="logo-placeholder"></a>
+    </header>
+
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="descripcion.html">Descripción</a>
+        <a href="afiliarse.html">Afiliarse</a>
+        <a href="noticias.html">Noticias</a>
+        <a href="novedades.html">Novedades</a>
+        <a href="programa.html">Programa Electoral</a>
+        <a href="redes.html">Redes Sociales</a>
+
+        <form class="search-container" action="buscar.html" method="GET" role="search">
+            <input type="text" name="q" placeholder="Buscar..." aria-label="Buscar">
+            <button type="submit" aria-label="Buscar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </form>
+    </nav>
+
+    <div class="titulo">
+        <h2>BUSCAR</h2>
+    </div>
+
+    <main>
+        <section class="tarjeta" id="resultados">
+            <p class="sin-resultados">Escribe algo en el buscador para encontrar contenido de la web.</p>
+        </section>
+    </main>
+
+    <footer>CNE · Central Nacional Español · centralnacionalespanol@gmail.com</footer>
+    <script>
+        const paginas = [
+            { url: 'index.html', titulo: 'Inicio', texto: 'web oficial cne central nacional español noticias novedades asociación benéfica política correo' },
+            { url: 'descripcion.html', titulo: 'Descripción', texto: 'quiénes somos organización política centro presidencia gobierno benéfica libre mercado crecimiento económico corrupción okupa vivienda inmigración igualdad' },
+            { url: 'afiliarse.html', titulo: 'Afiliarse', texto: 'afiliarse unirse afiliación formulario voluntario simpatizante colaborar' },
+            { url: 'noticias.html', titulo: 'Noticias', texto: 'noticias afuera extremos bienvenido centro democracia de verdad cambiar españa' },
+            { url: 'novedades.html', titulo: 'Novedades', texto: 'novedades web oficial afiliación online tiktok programa electoral' },
+            { url: 'programa.html', titulo: 'Programa Electoral', texto: 'programa electoral economía libre mercado crecimiento reformas igualdad justicia corrupción vivienda okupación jóvenes inmigración fronteras social benéfico' },
+            { url: 'redes.html', titulo: 'Redes Sociales', texto: 'redes sociales tiktok cne_oficial correo contacto email' },
+        ];
+        const normalizar = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const q = new URLSearchParams(location.search).get('q') || '';
+        const caja = document.getElementById('resultados');
+        document.querySelector('.search-container input').value = q;
+        const palabras = normalizar(q).split(/\s+/).filter(Boolean);
+        if (palabras.length) {
+            const encontradas = paginas.filter((p) => {
+                const contenido = normalizar(p.titulo + ' ' + p.texto);
+                return palabras.some((w) => contenido.includes(w));
+            });
+            caja.innerHTML = '';
+            const h = document.createElement('h3');
+            h.textContent = 'Resultados para "' + q + '"';
+            caja.appendChild(h);
+            if (!encontradas.length) {
+                const p = document.createElement('p');
+                p.className = 'sin-resultados';
+                p.textContent = 'No se han encontrado resultados.';
+                caja.appendChild(p);
+            } else {
+                const ul = document.createElement('ul');
+                encontradas.forEach((p) => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = p.url;
+                    a.textContent = p.titulo;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                caja.appendChild(ul);
+            }
+        }
+    </script>
+</body>
+
+</html>
