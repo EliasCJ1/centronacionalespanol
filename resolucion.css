@@ -3,8 +3,14 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     zoom: var(--escala-pantalla);
-    min-height: 100vh;
+    min-height: calc(100vh / var(--escala-pantalla));
+}
+
+main {
+    flex: 1;
 }
 
 header,
@@ -12,4 +18,5 @@ nav,
 footer {
     flex-shrink: 0;
 }
+
 
