@@ -51,6 +51,7 @@ nav {
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+    border: none;
 }
 
 nav a {
