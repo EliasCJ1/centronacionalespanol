@@ -51,7 +51,6 @@ nav {
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
-    border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
