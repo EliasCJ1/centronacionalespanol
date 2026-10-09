@@ -13,6 +13,23 @@
     padding: 0;
 }
 
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+button,
+input {
+    letter-spacing: normal;
+    word-spacing: normal;
+}
+
 body {
     font-family: system-ui, -apple-system, sans-serif;
     background-color: var(--bg-color);
